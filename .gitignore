@@ -1,0 +1,7 @@
+# Original (uncompressed) videos and PDFs live outside this repo; never commit them.
+*.avi
+*.mov
+*.mkv
+*.pdf
+.DS_Store
+__pycache__/

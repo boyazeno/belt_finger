@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Belt-Finger: Soft Belt-Driven Fingers for Dexterous and Sensitive In-Hand Manipulation</title>
+  <meta name="description" content="Project page for Belt-Finger (CoRL 2026) and Belt-Finger-Touch: soft, actively driven double-belt fingers that add in-hand translation, roll and pitch to a parallel gripper, and camera-based force sensing on the moving belt.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Belt-Finger &amp; Belt-Finger-Touch">
+  <meta property="og:description" content="Soft belt-driven fingers for dexterous and sensitive in-hand manipulation.">
+  <meta property="og:url" content="https://boyazeno.github.io/belt_finger/">
+  <meta property="og:image" content="https://boyazeno.github.io/belt_finger/static/images/v1_teaser.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="container">
+    <a class="brand" href="#top">Belt-Finger</a>
+    <a href="#overview">Overview</a>
+    <a href="#belt-finger">Belt-Finger</a>
+    <a href="#belt-finger-touch">Belt-Finger-Touch</a>
+    <a href="#resources">Resources</a>
+    <a href="#bibtex">BibTeX</a>
+  </div>
+</nav>
+
+<header class="hero container" id="top">
+  <h1>Belt-Finger</h1>
+  <p class="subtitle">Soft Belt-Driven Fingers for Dexterous and Sensitive In-Hand Manipulation</p>
+</header>
+
+<main>
+
+  <!-- ==================== OVERVIEW ==================== -->
+  <section class="section container" id="overview">
+    <h2>Overview</h2>
+    <div class="prose">
+      <p>
+        Parallel-jaw grippers are the default end-effector in robotics because they are simple, robust and cheap, but once an
+        object is grasped they cannot move it, so every reorientation has to come from the arm. The Belt-Finger series replaces
+        the jaws with soft, actively driven double-belt fingers. The gripper still opens and closes like a normal parallel
+        gripper, while the belts translate, roll and pitch the object inside the hand.
+      </p>
+      <p>
+        <b>Belt-Finger</b> introduces the low-cost, 3D-printable hardware and shows that it can be driven by teleoperation,
+        model predictive control and fine-tuned vision-language-action policies. <b>Belt-Finger-Touch</b> adds the sense of
+        touch: a camera inside the finger estimates contact force on the moving, deforming belt, enabling force-controlled
+        handling of fragile objects and tactile human&ndash;robot interaction.
+      </p>
+    </div>
+
+    <div class="cards">
+      <a class="card v1" href="#belt-finger">
+        <div class="thumb"><img src="static/images/v1_teaser.jpg" alt="Belt-Finger gripper with its in-hand degrees of freedom, and exploded view of one finger" loading="lazy"></div>
+        <div class="body">
+          <h3>Belt-Finger</h3>
+          <span class="badge v1">CoRL 2026</span>
+          <p>A double soft-belt finger module that turns a parallel gripper into a dexterous one, with in-hand translation, roll and pitch.</p>
+          <span class="more">Videos &amp; links &darr;</span>
+        </div>
+      </a>
+      <a class="card v2" href="#belt-finger-touch">
+        <div class="thumb"><img src="static/images/touch_teaser.jpg" alt="Belt-Finger-Touch finger with pulley, belt, embedded camera, motor and tension wheel" loading="lazy"></div>
+        <div class="body">
+          <h3>Belt-Finger-Touch</h3>
+          <span class="badge v2">Under review</span>
+          <p>A camera inside the finger reads contact force on the rotating belts (0.29&nbsp;N MAE at 30&nbsp;Hz) for damage-free handling of fragile fruit.</p>
+          <span class="more">Videos &amp; links &darr;</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== BELT-FINGER (V1) ==================== -->
+  <section class="paper v1" id="belt-finger">
+    <div class="paper-band"><div class="container paper-head">
+      <p class="kicker">Paper 1 &middot; Hardware &amp; Dexterity</p>
+      <h2>Belt-Finger</h2>
+      <p class="paper-title">An Affordable Soft Belt-Driven Gripper for Dexterous In-Hand Manipulation</p>
+      <p class="authors">
+        <span>Boya Zhang<sup>1</sup></span>
+        <span>Andreas Zell<sup>1</sup></span>
+        <span>Georg Martius<sup>1,2</sup></span>
+      </p>
+      <p class="affil"><span><sup>1</sup>University of T&uuml;bingen</span> <span><sup>2</sup>Max Planck Institute for Intelligent Systems</span></p>
+      <span class="badge v1">CoRL 2026</span>
+      <div class="links">
+        <a class="btn" href="https://arxiv.org/abs/2606.20193"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+        <a class="btn" href="#v1-videos"><i class="fa-solid fa-film"></i> Videos</a>
+        <a class="btn" href="https://github.com/boyazeno/belt_finger_hardware"><i class="fa-solid fa-gear"></i> Hardware</a>
+        <!-- TODO: replace with the V1 code repo link when released -->
+        <span class="btn off" title="Coming soon"><i class="fa-brands fa-github"></i> Code <span class="soon">(coming soon)</span></span>
+        <!-- TODO: replace with the V1 dataset link when released -->
+        <span class="btn off" title="Coming soon"><i class="fa-solid fa-database"></i> Dataset <span class="soon">(coming soon)</span></span>
+      </div>
+    </div></div>
+
+    <div class="container paper-body">
+    <div class="prose">
+      <p>
+        We present a parallel-gripper upgrade: a double-soft-belt finger module that keeps standard opening and closing while
+        adding three in-hand degrees of freedom: translation, pitch and roll. The fingers are 3D-printed from PLA and TPU and
+        use off-the-shelf servos, keeping the mechanism simple, cheap and easy to integrate. To use the extra DoFs we build two
+        control pipelines: an iCEM-based model predictive controller for in-hand manipulation of known objects, and a
+        lightweight teleoperation interface that controls the arm and gripper together (10 DoF) with minimal hardware. Across
+        challenging tasks executed by teleoperation, MPC and fine-tuned VLA policies, Belt-Finger consistently improves
+        dexterity and task feasibility over a conventional parallel gripper.
+      </p>
+    </div>
+
+    <div id="v1-videos">
+      <div class="video-block">
+        <div class="vhead"><h3>Paper video</h3><span class="dur">3:56</span></div>
+        <video controls preload="metadata" playsinline poster="static/images/posters/intro.jpg">
+          <source src="static/videos/v1/intro.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          A walk-through of the whole paper: finger design, comparison with related grippers, teleoperated card insertion and
+          table cleaning, in-hand motion benchmarks, Belt-Finger vs. a parallel gripper, and MPC.
+        </p>
+      </div>
+
+      <div class="video-block narrow">
+        <div class="vhead"><h3>Hardware and teleoperation</h3><span class="dur">2:30</span></div>
+        <video controls preload="metadata" playsinline poster="static/images/posters/hardware_teleop.jpg">
+          <source src="static/videos/v1/hardware_teleop.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          Structure of the gripper, followed by two teleoperated tasks. In <i>card insertion</i>, a bank card is picked from
+          the table and pushed into a vertical and a 15&deg; sloped slot, with fine finger pitch doing the alignment. In
+          <i>table cleaning</i>, LEGO bricks are flipped and pens, tweezers and chess pieces are reoriented in hand instead of
+          with large arm motions.
+          <span class="ref">Sec. 3, 5, 6.3 &middot; Fig. 8&ndash;9</span>
+        </p>
+      </div>
+
+      <div class="video-block">
+        <div class="vhead"><h3>Belt-Finger vs. parallel gripper</h3><span class="dur">0:51</span></div>
+        <video controls preload="metadata" playsinline poster="static/images/posters/vs_parallel.jpg">
+          <source src="static/videos/v1/vs_parallel.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          The same teleoperated daily tasks with Belt-Finger (top) and a conventional parallel gripper (bottom). Belt-Finger
+          solves all ten benchmark tasks and the parallel gripper fails five of them. In-hand pitch, roll and translation replace
+          multi-step regrasps, re-centre thin or soft objects between the belts, and even screw on a lid.
+          <span class="ref">Sec. 6.5 &middot; App. E &middot; Fig. 12</span>
+        </p>
+      </div>
+
+      <div class="video-block">
+        <div class="vhead"><h3>VLA policies on Belt-Finger</h3><span class="dur">0:40</span></div>
+        <video controls preload="metadata" playsinline poster="static/images/posters/vla.jpg">
+          <source src="static/videos/v1/vla.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          Autonomous rollouts of &pi;<sub>0.5</sub>, GR00T N1.7 and ACT, fine-tuned on 750 teleoperated demonstrations
+          (150 per task) with a 10-D action space that includes the three belt motions. The policies use the active belts for
+          closed-loop corrections during in-hand manipulation.
+          <span class="ref">Sec. 6.4 &middot; Fig. 10 &middot; Table 4</span>
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Task</th><th>ACT</th><th>&pi;<sub>0.5</sub></th><th>GR00T N1.7</th></tr></thead>
+            <tbody>
+              <tr><td>Badminton in cup</td><td>60%</td><td class="best">80%</td><td>70%</td></tr>
+              <tr><td>LEGO reorientation</td><td>80%</td><td>95%</td><td class="best">100%</td></tr>
+              <tr><td>Pick &amp; insert tea bag</td><td>0%</td><td class="best">85%</td><td class="best">85%</td></tr>
+              <tr><td>Serve comb</td><td>60%</td><td class="best">70%</td><td>60%</td></tr>
+              <tr><td>Recover knight</td><td>0%</td><td>60%</td><td class="best">75%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Success rate over 20 rollouts per task.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ==================== BELT-FINGER-TOUCH (V2) ==================== -->
+  <section class="paper v2" id="belt-finger-touch">
+    <div class="paper-band"><div class="container paper-head">
+      <p class="kicker">Paper 2 &middot; Visual-Tactile Sensing</p>
+      <h2>Belt-Finger-Touch</h2>
+      <p class="paper-title">Integrating Visual-Tactile Sensing for Sensitive In-hand Manipulation</p>
+      <p class="authors">
+        <span>Boya Zhang<sup>1</sup></span>
+        <span>Iris Andrussow<sup>1,2</sup></span>
+        <span>Andreas Zell<sup>1</sup></span>
+        <span>Georg Martius<sup>1,2</sup></span>
+      </p>
+      <p class="affil"><span><sup>1</sup>University of T&uuml;bingen</span> <span><sup>2</sup>Max Planck Institute for Intelligent Systems</span></p>
+      <span class="badge v2">Under review</span>
+      <div class="links">
+        <!-- TODO: replace with the paper link (arXiv / journal) when available -->
+        <span class="btn off" title="Coming soon"><i class="fa-solid fa-file-pdf"></i> Paper <span class="soon">(coming soon)</span></span>
+        <a class="btn" href="#touch-videos"><i class="fa-solid fa-film"></i> Videos</a>
+        <a class="btn" href="https://github.com/boyazeno/belt_finger_hardware"><i class="fa-solid fa-gear"></i> Hardware</a>
+        <a class="btn" href="https://github.com/boyazeno/belt_finger_touch"><i class="fa-brands fa-github"></i> Code</a>
+        <a class="btn" href="https://cscloud.cs.uni-tuebingen.de/index.php/s/NBpDdEsYWK798HM"><i class="fa-solid fa-database"></i> Dataset</a>
+      </div>
+    </div></div>
+
+    <div class="container paper-body">
+    <div class="prose">
+      <p>
+        Belt- and roller-driven fingers can translate, roll and pitch an object in hand, but their contact surface keeps moving
+        and bending. Electrode-based strain sensing and conventional gel-based visual-tactile sensors do not work on it, so such
+        grippers usually run open-loop. Belt-Finger-Touch upgrades Belt-Finger with a single embedded camera that observes both
+        belts from inside the finger. A lightweight network predicts each belt's segmentation and an <i>effective
+        indentation</i> (magnitude, location and angle) from the image, and a quasi-linear viscoelastic (QLV) model fitted on
+        15&nbsp;h of test-bench data converts it into a dynamic contact force. A belt-specific camera calibration lets the
+        model transfer to newly built fingers. The pipeline runs in real time and enables damage-free in-hand reorientation of
+        fragile fruit and sensitive tactile guidance of a robot arm.
+      </p>
+    </div>
+
+    <div id="touch-videos">
+      <div class="video-block narrow-sm">
+        <div class="vhead"><h3>Mechanical design</h3><span class="dur">0:15</span></div>
+        <video autoplay muted loop playsinline controls preload="auto" poster="static/images/posters/assembly.jpg">
+          <source src="static/videos/touch/assembly.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          Exploded view of the finger. Side walls replace the centre bone of Belt-Finger and form a chamber for the embedded
+          camera, which sees both belts and the grasped object through the gap. Two independently driven servos actuate the
+          upper and lower TPU belts, and tensioner pulleys preload the belts so their force response repeats across rolling
+          cycles.
+          <span class="ref">Sec. III-A &middot; Fig. 1</span>
+        </p>
+      </div>
+
+      <div class="video-block">
+        <div class="vhead"><h3>Force sensing across surfaces and backgrounds</h3><span class="dur">1:12</span></div>
+        <video controls preload="metadata" playsinline poster="static/images/posters/field.jpg">
+          <source src="static/videos/touch/field.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          A handheld stress test outside the test bench. The finger is pressed against objects of different colour, texture
+          and compliance in front of changing backgrounds, and the estimated contact-force vector is rendered on the belt in
+          real time. Domain randomisation during training (random textures, noise, colour jitter) keeps the estimate stable.
+          <span class="ref">Sec. IV-A, IV-B &middot; Fig. 7</span>
+        </p>
+      </div>
+
+      <div class="video-block">
+        <div class="vhead"><h3>In-hand reorientation of fragile fruit</h3><span class="dur">0:16</span></div>
+        <video autoplay muted loop playsinline controls preload="auto" poster="static/images/posters/reorient.jpg">
+          <source src="static/videos/touch/reorient.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          A strawberry, raspberry, plum and blueberry are rolled in hand by counter-rotating belts while a PD controller adjusts
+          the gripper opening to hold a target contact force. The belt wraps around the fruit and spreads the load, so a grasp
+          firm enough to rotate a plum does not bruise a raspberry.
+          <span class="ref">Sec. IV-D &middot; Fig. 10</span>
+        </p>
+      </div>
+
+      <div class="video-block">
+        <div class="vhead"><h3>Pick &ndash; reorient &ndash; place benchmark</h3><span class="dur">1:18</span></div>
+        <video controls preload="metadata" playsinline poster="static/images/posters/pick_place.jpg">
+          <source src="static/videos/touch/pick_place.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          Strawberries, raspberries and cherry tomatoes are grasped in an arbitrary orientation, rotated in hand to tip-down and
+          inserted into a holder. The lower panel plots the measured force on the upper and lower belt. A rigid parallel
+          gripper also cannot reach the target orientation within the arm's motion limits.
+          <span class="ref">Sec. IV-D &middot; Fig. 12 &middot; Table II</span>
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Gripper &amp; sensing</th><th>Strawberry</th><th>Raspberry</th><th>Cherry tomato</th></tr></thead>
+            <tbody>
+              <tr><td>Belt-Finger-Touch + force sensing</td><td class="best">19/20</td><td class="best">20/20</td><td class="best">20/20</td></tr>
+              <tr><td>Belt-Finger-Touch + motor-current limit</td><td>13/20</td><td>0/5</td><td>20/20</td></tr>
+              <tr><td>Parallel finger + motor-current limit</td><td>7/20</td><td>0/5</td><td>17/20</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Success without visible damage. Trials stop after 5 consecutive crushed fruits to avoid food waste.</p>
+      </div>
+
+      <div class="video-block">
+        <div class="vhead"><h3>Tactile guidance in four directions</h3><span class="dur">0:08</span></div>
+        <video autoplay muted loop playsinline controls preload="auto" poster="static/images/posters/guidance.jpg">
+          <source src="static/videos/touch/guidance.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          Force magnitude and contact location on each belt give four independent commands to a Cartesian velocity
+          controller: translation along <i>y</i> and <i>z</i>, and rotation about <i>y</i> and <i>z</i>. The operator pushes
+          through a guide bar held by the gripper, mimicking a loaded scenario.
+          <span class="ref">Sec. IV-E &middot; Fig. 13</span>
+        </p>
+      </div>
+
+      <div class="video-block">
+        <div class="vhead"><h3>Single-finger guidance along a circle</h3><span class="dur">0:31</span></div>
+        <video controls preload="metadata" playsinline poster="static/images/posters/circular.jpg">
+          <source src="static/videos/touch/circular.mp4" type="video/mp4">
+        </video>
+        <p class="caption">
+          The operator guides the arm along a circle shown on screen by pressing a single active Belt-Finger-Touch with one
+          finger. The traced path (blue) follows the reference (black) with a mean absolute error of 5.6&nbsp;% of the radius,
+          so the force estimate is smooth enough for continuous manual guidance and not only for contact detection.
+          <span class="ref">Sec. IV-E &middot; Fig. 14</span>
+        </p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <div class="shared">
+  <!-- ==================== RESOURCES ==================== -->
+  <section class="section container resources" id="resources">
+    <h2>Resources</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>Belt-Finger</th><th>Belt-Finger-Touch</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf"></i>&nbsp; Paper</td>
+            <td><a href="https://arxiv.org/abs/2606.20193">arXiv:2606.20193</a></td>
+            <td class="muted">Coming soon</td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-gear"></i>&nbsp; Hardware design</td>
+            <td colspan="2"><a href="https://github.com/boyazeno/belt_finger_hardware">boyazeno/belt_finger_hardware</a> <span class="muted">(shared by both)</span></td>
+          </tr>
+          <tr>
+            <td><i class="fa-brands fa-github"></i>&nbsp; Code</td>
+            <td class="muted">Coming soon</td>
+            <td><a href="https://github.com/boyazeno/belt_finger_touch">boyazeno/belt_finger_touch</a></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-database"></i>&nbsp; Dataset</td>
+            <td class="muted">Coming soon</td>
+            <td><a href="https://cscloud.cs.uni-tuebingen.de/index.php/s/NBpDdEsYWK798HM">Datasets</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ==================== BIBTEX ==================== -->
+  <section class="section container" id="bibtex">
+    <h2>BibTeX</h2>
+    <div class="bib">
+      <h3>Belt-Finger</h3>
+      <button class="copy" type="button">Copy</button>
+<pre><code>@inproceedings{zhang2026beltfinger,
+  title         = {Belt-Finger: An Affordable Soft Belt-Driven Gripper for Dexterous In-Hand Manipulation},
+  author        = {Zhang, Boya and Zell, Andreas and Martius, Georg},
+  booktitle     = {Conference on Robot Learning (CoRL)},
+  year          = {2026},
+  eprint        = {2606.20193},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO}
+}</code></pre>
+    </div>
+    <div class="bib">
+      <h3>Belt-Finger-Touch</h3>
+      <button class="copy" type="button">Copy</button>
+<pre><code>@misc{zhang2026beltfingertouch,
+  title  = {Belt-Finger-Touch: Integrating Visual-Tactile Sensing for Sensitive In-hand Manipulation},
+  author = {Zhang, Boya and Andrussow, Iris and Zell, Andreas and Martius, Georg},
+  year   = {2026},
+  note   = {Under review}
+}</code></pre>
+    </div>
+  </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>Belt-Finger-Touch was supported by the Baden-W&uuml;rttemberg Stiftung as part of the program &ldquo;Autonome Robotik&rdquo;.
+      The authors thank the International Max Planck Research School for Intelligent Systems (IMPRS-IS) for supporting Boya Zhang and Iris Andrussow.</p>
+    <p>University of T&uuml;bingen &middot; Max Planck Institute for Intelligent Systems</p>
+  </div>
+</footer>
+
+<script src="static/js/main.js"></script>
+</body>
+</html>
