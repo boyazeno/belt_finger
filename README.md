@@ -54,7 +54,6 @@ Each placeholder in `index.html` is marked with a `TODO` comment, and the matchi
 | What | Where |
 |---|---|
 | Belt-Finger code | `TODO: replace with the V1 code repo link` |
-| Belt-Finger dataset | `TODO: replace with the V1 dataset link` |
 | Belt-Finger-Touch paper | `TODO: replace with the paper link` (also update the BibTeX entry) |
 
 To fill one in, replace the `<span class="btn off" …>…</span>` with an `<a class="btn" href="…">…</a>` like its neighbours.
